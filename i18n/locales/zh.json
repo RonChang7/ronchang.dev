@@ -43,10 +43,10 @@
         "description": "由 Claude 每天清晨自動策展的個人新聞簡報，把當天想追的資訊濃縮成一封五分鐘能讀完的短報。",
         "stack": ["Claude API", "GitHub Actions", "GitHub Pages"]
       },
-      "sideB": {
-        "name": "Side Project B",
-        "description": "替換成你自己的專案描述。可以附上 GitHub 或 Demo 連結。",
-        "stack": ["Node.js", "tRPC", "Vercel"]
+      "hobbit": {
+        "name": "Hobbit Tracker",
+        "description": "幫自己追蹤日常習慣的小工具，用哈比人式的小步前進取代大目標帶來的焦慮。",
+        "stack": ["Nuxt", "TypeScript", "Supabase"]
       },
       "oss": {
         "name": "Open Source",
