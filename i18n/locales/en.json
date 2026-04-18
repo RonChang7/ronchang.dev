@@ -8,16 +8,16 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Ron Chang",
-    "role": "Software engineer building delightful products",
-    "description": "I love shipping software that solves real problems. I focus on the web stack, developer experience and the small details that make a product feel great.",
+    "role": "Software engineer — focused on the web and the details",
+    "description": "A frontend engineer who has spent years in the Vue and Nuxt ecosystem. I like turning tangled requirements into clean interfaces, and I believe a good product is really just a long series of small details done well.",
     "ctaPrimary": "See my work",
     "ctaSecondary": "Read the blog"
   },
   "about": {
     "eyebrow": "About",
-    "title": "Turning ideas into shipped products",
-    "paragraph1": "I work mostly in the Vue / Nuxt ecosystem and I'm comfortable across TypeScript, Node.js and cloud deployments. I like starting from the user and keeping things simple.",
-    "paragraph2": "Off the clock I build small tools, read, and wander around. This site is where I collect my work, experiments and notes.",
+    "title": "Turning ideas into products you can actually use",
+    "paragraph1": "Vue 3, Nuxt and TypeScript are home base. I'm comfortable reaching into the backend with Node.js, designing data models and shipping to Vercel or Cloudflare. Years of startup and team work have taught me one thing: get the user's path right first, keep the architecture boring, and optimize from there.",
+    "paragraph2": "I also spend a lot of time on the stuff users never see — tooling, types, readability, docs. Those invisible bits quietly decide how fast and how far a team can move. After hours I'll tinker with small tools, read, write notes, or just wander around. This site is where some of that ends up.",
     "skills": [
       "TypeScript",
       "Vue 3",
