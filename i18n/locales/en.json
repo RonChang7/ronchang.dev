@@ -45,8 +45,8 @@
       },
       "hobbit": {
         "name": "Hobbit Tracker",
-        "description": "A personal habit tracker that swaps big-goal anxiety for hobbit-sized daily steps.",
-        "stack": ["Nuxt", "TypeScript", "Supabase"]
+        "description": "A personal tracker for daily habits and mood journaling — small check-ins that stack into the rhythm you want.",
+        "stack": ["Nuxt 3", "PrimeVue", "Supabase"]
       },
       "oss": {
         "name": "Open Source",

@@ -45,8 +45,8 @@
       },
       "hobbit": {
         "name": "Hobbit Tracker",
-        "description": "幫自己追蹤日常習慣的小工具，用哈比人式的小步前進取代大目標帶來的焦慮。",
-        "stack": ["Nuxt", "TypeScript", "Supabase"]
+        "description": "追蹤日常習慣與心情日誌的個人工具，用每天幾分鐘的打卡慢慢累積屬於自己的生活節奏。",
+        "stack": ["Nuxt 3", "PrimeVue", "Supabase"]
       },
       "oss": {
         "name": "Open Source",
