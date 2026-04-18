@@ -32,27 +32,15 @@
   "projects": {
     "eyebrow": "Selected work",
     "title": "What I'm building",
-    "items": {
-      "personal": {
-        "name": "Personal Site",
-        "description": "This site — built with Nuxt 4 and Tailwind v4, with full i18n support.",
-        "stack": ["Nuxt 4", "Tailwind v4", "i18n"]
-      },
-      "daily": {
-        "name": "Daily Briefing",
-        "description": "A personal morning digest curated by Claude each dawn, distilling the day's signal into a single five-minute read.",
-        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"]
-      },
-      "hobbit": {
-        "name": "Hobbit Tracker",
-        "description": "A personal tracker for daily habits and mood journaling — small check-ins that stack into the rhythm you want.",
-        "stack": ["Nuxt 3", "PrimeVue", "Supabase"]
-      },
-      "oss": {
-        "name": "Open Source",
-        "description": "Contributions to OSS projects, or small tools I maintain.",
-        "stack": ["OSS"]
-      }
+    "empty": "No projects yet — check back soon!",
+    "back": "Back to projects",
+    "viewDetails": "Project details",
+    "visitSite": "Visit site",
+    "viewRepo": "Source on GitHub",
+    "status": {
+      "active": "Active",
+      "archived": "Archived",
+      "wip": "Work in progress"
     }
   },
   "blog": {

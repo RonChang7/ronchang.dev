@@ -32,27 +32,15 @@
   "projects": {
     "eyebrow": "精選作品",
     "title": "最近在做的事",
-    "items": {
-      "personal": {
-        "name": "Personal Site",
-        "description": "用 Nuxt 4 + Tailwind v4 打造的個人網站，支援中英雙語。",
-        "stack": ["Nuxt 4", "Tailwind v4", "i18n"]
-      },
-      "daily": {
-        "name": "AI 摘要日報",
-        "description": "由 Claude 每天清晨自動策展的個人新聞簡報，把當天想追的資訊濃縮成一封五分鐘能讀完的短報。",
-        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"]
-      },
-      "hobbit": {
-        "name": "Hobbit Tracker",
-        "description": "追蹤日常習慣與心情日誌的個人工具，用哈比人的步伐慢慢把每天累積成屬於自己的生活節奏。",
-        "stack": ["Nuxt 3", "PrimeVue", "Supabase"]
-      },
-      "oss": {
-        "name": "Open Source",
-        "description": "我在開源社群的貢獻紀錄，或自己維護的工具。",
-        "stack": ["OSS"]
-      }
+    "empty": "還沒有作品，很快就來！",
+    "back": "回到作品列表",
+    "viewDetails": "看專案詳情",
+    "visitSite": "造訪網站",
+    "viewRepo": "GitHub 原始碼",
+    "status": {
+      "active": "進行中",
+      "archived": "封存",
+      "wip": "開發中"
     }
   },
   "blog": {
