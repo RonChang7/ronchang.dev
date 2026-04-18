@@ -9,7 +9,7 @@ interface Project {
 const PROJECT_KEYS = [
   { key: 'personal', url: 'https://ronchang.dev' },
   { key: 'daily', url: 'https://news.ronchang.dev' },
-  { key: 'sideB', url: undefined },
+  { key: 'hobbit', url: 'https://hobbit-tracker.ronchang.dev' },
   { key: 'oss', url: undefined }
 ] as const
 

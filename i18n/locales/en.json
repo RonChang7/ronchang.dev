@@ -43,10 +43,10 @@
         "description": "A personal morning digest curated by Claude each dawn, distilling the day's signal into a single five-minute read.",
         "stack": ["Claude API", "GitHub Actions", "GitHub Pages"]
       },
-      "sideB": {
-        "name": "Side Project B",
-        "description": "Replace with your own project description. Add GitHub or live demo links.",
-        "stack": ["Node.js", "tRPC", "Vercel"]
+      "hobbit": {
+        "name": "Hobbit Tracker",
+        "description": "A personal tracker for daily habits and mood journaling — small check-ins that stack into the rhythm you want.",
+        "stack": ["Nuxt 3", "PrimeVue", "Supabase"]
       },
       "oss": {
         "name": "Open Source",
