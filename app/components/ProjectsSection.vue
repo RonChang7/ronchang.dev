@@ -6,15 +6,16 @@ interface Project {
   url?: string
 }
 
-const { t, tm, rt } = useI18n()
+const { t, messages, locale } = useI18n()
 
 const projects = computed<Project[]>(() => {
-  const items = tm('projects.items') as Array<Record<string, unknown>>
-  return items.map(p => ({
-    name: rt(p.name as string),
-    description: rt(p.description as string),
-    stack: (p.stack as string[]).map(s => rt(s)),
-    url: p.url as string | undefined
+  const raw = (messages.value[locale.value] as any)?.projects?.items
+  if (!Array.isArray(raw)) return []
+  return raw.map((p: any) => ({
+    name: p.name,
+    description: p.description,
+    stack: p.stack ?? [],
+    url: p.url
   }))
 })
 </script>
