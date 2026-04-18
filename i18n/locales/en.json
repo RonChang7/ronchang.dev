@@ -32,30 +32,28 @@
   "projects": {
     "eyebrow": "Selected work",
     "title": "What I'm building",
-    "items": [
-      {
+    "items": {
+      "personal": {
         "name": "Personal Site",
         "description": "This site — built with Nuxt 4 and Tailwind v4, with full i18n support.",
-        "stack": ["Nuxt 4", "Tailwind v4", "i18n"],
-        "url": "https://ronchang.dev"
+        "stack": ["Nuxt 4", "Tailwind v4", "i18n"]
       },
-      {
+      "daily": {
         "name": "Daily Briefing",
         "description": "A personal morning digest curated by Claude each dawn, distilling the day's signal into a single five-minute read.",
-        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"],
-        "url": "https://news.ronchang.dev"
+        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"]
       },
-      {
+      "sideB": {
         "name": "Side Project B",
         "description": "Replace with your own project description. Add GitHub or live demo links.",
         "stack": ["Node.js", "tRPC", "Vercel"]
       },
-      {
+      "oss": {
         "name": "Open Source",
         "description": "Contributions to OSS projects, or small tools I maintain.",
         "stack": ["OSS"]
       }
-    ]
+    }
   },
   "blog": {
     "eyebrow": "Latest posts",
