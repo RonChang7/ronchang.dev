@@ -43,6 +43,29 @@
       "wip": "Work in progress"
     }
   },
+  "github": {
+    "eyebrow": "GitHub activity",
+    "title": "Recent public activity",
+    "empty": "No recent public activity.",
+    "loadError": "Failed to load GitHub activity.",
+    "viewProfile": "View full profile →",
+    "action": {
+      "push": "pushed {count} commits to",
+      "pr_opened": "opened a PR in",
+      "pr_merged": "merged a PR in",
+      "pr_closed": "closed a PR in",
+      "issue_opened": "opened an issue in",
+      "issue_closed": "closed an issue in",
+      "create_repo": "created repo",
+      "create_branch": "created a branch in",
+      "create_tag": "created a tag in",
+      "fork": "forked",
+      "star": "starred",
+      "release": "released in",
+      "comment": "commented on",
+      "other": "acted on"
+    }
+  },
   "blog": {
     "eyebrow": "Latest posts",
     "title": "Writing & notes",
