@@ -6,18 +6,25 @@ interface Project {
   url?: string
 }
 
-const { t, messages, locale } = useI18n()
+const PROJECT_KEYS = [
+  { key: 'personal', url: 'https://ronchang.dev' },
+  { key: 'daily', url: 'https://news.ronchang.dev' },
+  { key: 'sideB', url: undefined },
+  { key: 'oss', url: undefined }
+] as const
 
-const projects = computed<Project[]>(() => {
-  const raw = (messages.value[locale.value] as any)?.projects?.items
-  if (!Array.isArray(raw)) return []
-  return raw.map((p: any) => ({
-    name: p.name,
-    description: p.description,
-    stack: p.stack ?? [],
-    url: p.url
+const { t, tm, rt } = useI18n()
+
+const projects = computed<Project[]>(() =>
+  PROJECT_KEYS.map(p => ({
+    url: p.url,
+    name: t(`projects.items.${p.key}.name`),
+    description: t(`projects.items.${p.key}.description`),
+    stack: (tm(`projects.items.${p.key}.stack`) as unknown[]).map(s =>
+      typeof s === 'string' ? s : rt(s as never)
+    )
   }))
-})
+)
 </script>
 
 <template>
