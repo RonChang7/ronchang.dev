@@ -38,6 +38,9 @@ export default defineNuxtConfig({
       { code: 'zh', name: '繁體中文', language: 'zh-Hant', file: 'zh.json' },
       { code: 'en', name: 'English', language: 'en-US', file: 'en.json' }
     ],
+    bundle: {
+      optimizeTranslationDirective: false
+    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
