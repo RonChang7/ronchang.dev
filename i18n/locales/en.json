@@ -41,8 +41,8 @@
       },
       {
         "name": "Daily Briefing",
-        "description": "An AI-curated personal morning digest that condenses the day's signal into a single five-minute read.",
-        "stack": ["Nuxt", "LLM", "i18n"],
+        "description": "A personal morning digest curated by Claude each dawn, distilling the day's signal into a single five-minute read.",
+        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"],
         "url": "https://news.ronchang.dev"
       },
       {

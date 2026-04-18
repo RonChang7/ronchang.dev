@@ -41,8 +41,8 @@
       },
       {
         "name": "每日策展報",
-        "description": "AI 策展的個人化晨間新聞簡報，把當天想追的資訊濃縮成一封五分鐘能讀完的短報。",
-        "stack": ["Nuxt", "LLM", "i18n"],
+        "description": "由 Claude 每天清晨自動策展的個人新聞簡報，把當天想追的資訊濃縮成一封五分鐘能讀完的短報。",
+        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"],
         "url": "https://news.ronchang.dev"
       },
       {
