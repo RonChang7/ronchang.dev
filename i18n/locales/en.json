@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Ron Chang",
+    "role": "Software engineer building delightful products",
+    "description": "I love shipping software that solves real problems. I focus on the web stack, developer experience and the small details that make a product feel great.",
+    "ctaPrimary": "See my work",
+    "ctaSecondary": "Read the blog"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Turning ideas into shipped products",
+    "paragraph1": "I work mostly in the Vue / Nuxt ecosystem and I'm comfortable across TypeScript, Node.js and cloud deployments. I like starting from the user and keeping things simple.",
+    "paragraph2": "Off the clock I build small tools, read, and wander around. This site is where I collect my work, experiments and notes.",
+    "skills": [
+      "TypeScript",
+      "Vue 3",
+      "Nuxt 4",
+      "Node.js",
+      "Tailwind CSS",
+      "Vite",
+      "PostgreSQL",
+      "Vercel"
+    ]
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "What I'm building",
+    "items": [
+      {
+        "name": "Personal Site",
+        "description": "This site — built with Nuxt 4 and Tailwind v4, with full i18n support.",
+        "stack": ["Nuxt 4", "Tailwind v4", "i18n"],
+        "url": "https://ronchang.dev"
+      },
+      {
+        "name": "Side Project A",
+        "description": "Replace with your own project description. Call out the problem solved and the stack.",
+        "stack": ["Vue", "TypeScript", "PostgreSQL"]
+      },
+      {
+        "name": "Side Project B",
+        "description": "Replace with your own project description. Add GitHub or live demo links.",
+        "stack": ["Node.js", "tRPC", "Vercel"]
+      },
+      {
+        "name": "Open Source",
+        "description": "Contributions to OSS projects, or small tools I maintain.",
+        "stack": ["OSS"]
+      }
+    ]
+  },
+  "blog": {
+    "eyebrow": "Latest posts",
+    "title": "Writing & notes",
+    "pageDescription": "Engineering journal, learning notes, and moments I wanted to remember.",
+    "viewAll": "View all",
+    "empty": "No posts yet — check back soon!",
+    "back": "Back to posts"
+  },
+  "footer": {
+    "tagline": "Thanks for stopping by"
+  }
+}

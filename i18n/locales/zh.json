@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於",
+    "projects": "作品",
+    "blog": "文章"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "name": "Ron Chang",
+    "role": "軟體工程師 / 打造有趣的產品",
+    "description": "我熱愛用程式解決真實問題，專注於 Web 技術、開發者體驗與產品打磨。這裡會記錄我的作品與學習筆記。",
+    "ctaPrimary": "看看我的作品",
+    "ctaSecondary": "閱讀文章"
+  },
+  "about": {
+    "eyebrow": "關於我",
+    "title": "把想法一步步變成產品",
+    "paragraph1": "我專注在 Vue / Nuxt 生態系，也熟悉 TypeScript、Node.js 與雲端部署。喜歡從使用者情境出發，用最簡單的方式把事情做對。",
+    "paragraph2": "下班之後會寫點小工具、讀書、或四處走走。這個網站會持續紀錄我的作品、實驗與心得。",
+    "skills": [
+      "TypeScript",
+      "Vue 3",
+      "Nuxt 4",
+      "Node.js",
+      "Tailwind CSS",
+      "Vite",
+      "PostgreSQL",
+      "Vercel"
+    ]
+  },
+  "projects": {
+    "eyebrow": "精選作品",
+    "title": "最近在做的事",
+    "items": [
+      {
+        "name": "Personal Site",
+        "description": "用 Nuxt 4 + Tailwind v4 打造的個人網站，支援中英雙語。",
+        "stack": ["Nuxt 4", "Tailwind v4", "i18n"],
+        "url": "https://ronchang.dev"
+      },
+      {
+        "name": "Side Project A",
+        "description": "替換成你自己的專案描述。介紹解決的問題與用到的技術。",
+        "stack": ["Vue", "TypeScript", "PostgreSQL"]
+      },
+      {
+        "name": "Side Project B",
+        "description": "替換成你自己的專案描述。可以附上 GitHub 或 Demo 連結。",
+        "stack": ["Node.js", "tRPC", "Vercel"]
+      },
+      {
+        "name": "Open Source",
+        "description": "我在開源社群的貢獻紀錄，或自己維護的工具。",
+        "stack": ["OSS"]
+      }
+    ]
+  },
+  "blog": {
+    "eyebrow": "最新文章",
+    "title": "寫作 & 筆記",
+    "pageDescription": "工程日記、學習筆記，以及那些讓我想記下來的瞬間。",
+    "viewAll": "看全部",
+    "empty": "還沒有文章，很快就來！",
+    "back": "回到文章列表"
+  },
+  "footer": {
+    "tagline": "謝謝你的造訪"
+  }
+}
