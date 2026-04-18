@@ -40,9 +40,10 @@
         "url": "https://ronchang.dev"
       },
       {
-        "name": "Side Project A",
-        "description": "Replace with your own project description. Call out the problem solved and the stack.",
-        "stack": ["Vue", "TypeScript", "PostgreSQL"]
+        "name": "Daily Briefing",
+        "description": "A personal morning digest curated by Claude each dawn, distilling the day's signal into a single five-minute read.",
+        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"],
+        "url": "https://news.ronchang.dev"
       },
       {
         "name": "Side Project B",

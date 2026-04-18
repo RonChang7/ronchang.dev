@@ -40,9 +40,10 @@
         "url": "https://ronchang.dev"
       },
       {
-        "name": "Side Project A",
-        "description": "替換成你自己的專案描述。介紹解決的問題與用到的技術。",
-        "stack": ["Vue", "TypeScript", "PostgreSQL"]
+        "name": "每日策展報",
+        "description": "由 Claude 每天清晨自動策展的個人新聞簡報，把當天想追的資訊濃縮成一封五分鐘能讀完的短報。",
+        "stack": ["Claude API", "GitHub Actions", "GitHub Pages"],
+        "url": "https://news.ronchang.dev"
       },
       {
         "name": "Side Project B",
