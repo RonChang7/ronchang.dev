@@ -11,24 +11,27 @@ const nav = computed(() => [
 </script>
 
 <template>
-  <header class="sticky top-0 z-40 border-b border-white/5 bg-[#0b1020]/70 backdrop-blur">
+  <header class="sticky top-0 z-40 border-b border-border bg-nav-bg backdrop-blur">
     <div class="container-page flex h-16 items-center justify-between">
       <NuxtLink :to="localePath('/')" class="font-mono text-base tracking-tight">
-        <span class="text-brand-400">ron</span><span class="text-white/80">.chang</span>
+        <span class="text-brand-500 dark:text-brand-400">ron</span><span class="text-fg-muted">.chang</span>
       </NuxtLink>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm text-white/70">
+      <nav class="hidden md:flex items-center gap-6 text-sm text-fg-muted">
         <NuxtLink
           v-for="item in nav"
           :key="item.to"
           :to="item.to"
-          class="transition hover:text-white"
+          class="transition hover:text-fg"
         >
           {{ item.label }}
         </NuxtLink>
       </nav>
 
-      <LanguageSwitcher />
+      <div class="flex items-center gap-2">
+        <ThemeToggle />
+        <LanguageSwitcher />
+      </div>
     </div>
   </header>
 </template>

@@ -14,7 +14,7 @@ const available = computed(() =>
       :key="l.code"
       :to="switchLocalePath(l.code)"
       class="rounded-md px-2 py-1 transition"
-      :class="locale === l.code ? 'bg-white/10 text-white' : 'text-white/50 hover:text-white'"
+      :class="locale === l.code ? 'bg-surface-hover text-fg' : 'text-fg-subtle hover:text-fg'"
     >
       {{ l.code.toUpperCase() }}
     </NuxtLink>

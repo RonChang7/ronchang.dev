@@ -12,6 +12,7 @@ useSeoMeta({
     <HeroSection />
     <AboutSection />
     <ProjectsSection />
+    <GithubActivity />
     <BlogPreview />
   </div>
 </template>

@@ -7,7 +7,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: { strict: true, typeCheck: false },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/content'],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/color-mode'],
+
+  colorMode: {
+    preference: 'system',
+    fallback: 'dark',
+    classSuffix: '',
+    storageKey: 'ronchang-color-mode'
+  },
 
   css: ['~/assets/css/main.css'],
 

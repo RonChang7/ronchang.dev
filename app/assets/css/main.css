@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
@@ -14,6 +16,58 @@
   --color-brand-700: #4338ca;
   --color-brand-800: #3730a3;
   --color-brand-900: #312e81;
+
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-faint: var(--fg-faint);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-nav-bg: var(--nav-bg);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+}
+
+:root,
+.light {
+  --bg: #f7f8fb;
+  --fg: #0f172a;
+  --fg-muted: color-mix(in srgb, #0f172a 72%, transparent);
+  --fg-subtle: color-mix(in srgb, #0f172a 55%, transparent);
+  --fg-faint: color-mix(in srgb, #0f172a 40%, transparent);
+  --surface: rgba(15, 23, 42, 0.04);
+  --surface-hover: rgba(15, 23, 42, 0.07);
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --nav-bg: rgba(247, 248, 251, 0.75);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --page-gradient:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(14, 165, 233, 0.14), transparent 60%);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0b1020;
+  --fg: #f1f5f9;
+  --fg-muted: rgba(229, 231, 235, 0.75);
+  --fg-subtle: rgba(229, 231, 235, 0.55);
+  --fg-faint: rgba(229, 231, 235, 0.4);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --nav-bg: rgba(11, 16, 32, 0.7);
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --page-gradient:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.15), transparent 60%),
+    radial-gradient(900px 500px at 110% 10%, rgba(14, 165, 233, 0.15), transparent 60%);
+  color-scheme: dark;
 }
 
 html {
@@ -21,23 +75,22 @@ html {
 }
 
 body {
+  background: var(--page-gradient), var(--bg);
+  color: var(--fg);
   font-family: var(--font-sans);
-  background: radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.15), transparent 60%),
-              radial-gradient(900px 500px at 110% 10%, rgba(14, 165, 233, 0.15), transparent 60%),
-              #0b1020;
-  color: #e5e7eb;
   min-height: 100vh;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .container-page {
-  width: 100%;
-  max-width: 72rem;
   margin-inline: auto;
+  max-width: 72rem;
   padding-inline: 1.25rem;
+  width: 100%;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
