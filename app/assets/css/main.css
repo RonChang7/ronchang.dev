@@ -46,6 +46,10 @@
   --nav-bg: rgba(247, 248, 251, 0.75);
   --accent: #4f46e5;
   --accent-hover: #4338ca;
+  --hl-info: #2563eb;
+  --hl-warn: #b45309;
+  --hl-danger: #dc2626;
+  --hl-success: #047857;
   --page-gradient:
     radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.18), transparent 60%),
     radial-gradient(900px 500px at 110% 10%, rgba(14, 165, 233, 0.14), transparent 60%);
@@ -65,6 +69,10 @@
   --nav-bg: rgba(11, 16, 32, 0.7);
   --accent: #818cf8;
   --accent-hover: #a5b4fc;
+  --hl-info: #60a5fa;
+  --hl-warn: #fbbf24;
+  --hl-danger: #f87171;
+  --hl-success: #34d399;
   --page-gradient:
     radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.15), transparent 60%),
     radial-gradient(900px 500px at 110% 10%, rgba(14, 165, 233, 0.15), transparent 60%);
@@ -95,3 +103,14 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
 }
+
+/* Inline highlight component (<Hl>): semantic colored text. */
+.hl {
+  font-weight: 500;
+}
+.hl-brand   { color: var(--accent); }
+.hl-info    { color: var(--hl-info); }
+.hl-warn    { color: var(--hl-warn); }
+.hl-danger  { color: var(--hl-danger); }
+.hl-success { color: var(--hl-success); }
+.hl-mute    { color: var(--fg-subtle); }
