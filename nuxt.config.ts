@@ -56,6 +56,11 @@ export default defineNuxtConfig({
   },
 
   content: {
+    // Use Node's native SQLite (>=22.5.0) instead of better-sqlite3 to
+    // avoid native-binding load failures inside Vercel Functions, which
+    // cause SSR queryCollection() to silently return [] in production.
+    // https://content.nuxt.com/docs/getting-started/configuration#experimentalsqliteconnector
+    experimental: { sqliteConnector: 'native' },
     build: {
       markdown: {
         toc: { depth: 3, searchDepth: 3 }
