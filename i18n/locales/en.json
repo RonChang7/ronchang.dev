@@ -8,24 +8,26 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Ron Chang",
-    "role": "Software engineer — focused on the web and the details",
-    "description": "A frontend engineer who has spent years in the Vue and Nuxt ecosystem. I like turning tangled requirements into clean interfaces, and I believe a good product is really just a long series of small details done well.",
+    "role": "Software Engineer / Web & Product Details",
+    "description": "I'm a frontend engineer with years in the Vue / Nuxt ecosystem, also taking on cross-team project coordination at work. I enjoy turning messy requirements into clean interfaces, and I believe a good product is shaped by polishing the small details that nobody notices at first.",
     "ctaPrimary": "See my work",
     "ctaSecondary": "Read the blog"
   },
   "about": {
     "eyebrow": "About",
-    "title": "Turning ideas into products you can actually use",
-    "paragraph1": "Vue 3, Nuxt and TypeScript are home base. I'm comfortable reaching into the backend with Node.js, designing data models and shipping to Vercel or Cloudflare. Years of startup and team work have taught me one thing: get the user's path right first, keep the architecture boring, and optimize from there.",
-    "paragraph2": "I also spend a lot of time on the stuff users never see — tooling, types, readability, docs. Those invisible bits quietly decide how fast and how far a team can move. After hours I'll tinker with small tools, read, write notes, or just wander around. This site is where some of that ends up.",
+    "title": "Turning ideas into products that ship",
+    "paragraph1": "My main stack is Vue 3, Nuxt, and TypeScript. I deploy with Docker, Cloud Run, and Vercel, and I'm gradually extending into the backend — data modeling and ORMs. At my current company I work as both a Senior Frontend Engineer and de facto PM, taking projects from requirement gathering and cross-team coordination through to implementation and launch. The instinct I've built up over the years: think through the user's path first, get it right with the simplest architecture, then optimize from there.",
+    "paragraph2": "Beyond shipping product features, I spend a lot of time on developer experience — tooling, types, readability, documentation. These invisible things end up deciding how fast and how far a team can go. After work I sometimes build small tools, write notes, read, or just take a walk. This site is where I keep track of all of it.",
     "skills": [
-      "TypeScript",
       "Vue 3",
       "Nuxt 4",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Nuxt UI",
       "Node.js",
-      "Tailwind CSS",
-      "Vite",
       "PostgreSQL",
+      "Docker",
+      "Cloud Run",
       "Vercel"
     ]
   },
