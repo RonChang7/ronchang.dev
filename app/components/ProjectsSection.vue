@@ -4,12 +4,15 @@ const localePath = useLocalePath()
 
 const { data: projects } = await useAsyncData(
   () => `projects-section-${locale.value}`,
-  () => queryCollection('projects')
-    .where('locale', '=', locale.value)
-    .order('order', 'ASC')
-    .all(),
+  () => locale.value === 'en'
+    ? queryCollection('projectsEn').order('order', 'ASC').all()
+    : queryCollection('projects').order('order', 'ASC').all(),
   { watch: [locale] }
 )
+
+function slugFromPath(path: string) {
+  return path.split('/').pop() || ''
+}
 </script>
 
 <template>
@@ -28,8 +31,8 @@ const { data: projects } = await useAsyncData(
     <div v-if="projects?.length" class="grid gap-5 sm:grid-cols-2">
       <NuxtLink
         v-for="project in projects"
-        :key="project.slug"
-        :to="localePath(`/projects/${project.slug}`)"
+        :key="project.path"
+        :to="localePath(`/projects/${slugFromPath(project.path)}`)"
         class="glass group rounded-xl p-5 transition hover:border-border-strong"
       >
         <div class="flex items-center justify-between gap-2">

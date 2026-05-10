@@ -5,10 +5,15 @@ const localePath = useLocalePath()
 
 const { data: project } = await useAsyncData(
   () => `project-${locale.value}-${route.params.slug}`,
-  () => queryCollection('projects')
-    .where('locale', '=', locale.value)
-    .where('slug', '=', route.params.slug as string)
-    .first(),
+  () => {
+    const slug = route.params.slug as string
+    const path = locale.value === 'en'
+      ? `/en/projects/${slug}`
+      : `/projects/${slug}`
+    return locale.value === 'en'
+      ? queryCollection('projectsEn').path(path).first()
+      : queryCollection('projects').path(path).first()
+  },
   { watch: [locale] }
 )
 

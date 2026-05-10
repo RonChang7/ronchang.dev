@@ -1,8 +1,6 @@
 ---
 title: Hobbit Tracker
 description: 追蹤日常習慣與心情日誌的個人工具，用哈比人的步伐慢慢把每天累積成屬於自己的生活節奏。
-locale: zh
-slug: hobbit
 order: 3
 stack:
   - Nuxt 3

@@ -4,13 +4,15 @@ const localePath = useLocalePath()
 
 const { data: posts } = await useAsyncData(
   () => `blog-preview-${locale.value}`,
-  () => queryCollection('blog')
-    .where('locale', '=', locale.value)
-    .order('date', 'DESC')
-    .limit(3)
-    .all(),
+  () => locale.value === 'en'
+    ? queryCollection('blogEn').order('date', 'DESC').limit(3).all()
+    : queryCollection('blog').order('date', 'DESC').limit(3).all(),
   { watch: [locale] }
 )
+
+function slugFromPath(path: string) {
+  return path.split('/').pop() || ''
+}
 </script>
 
 <template>
@@ -35,8 +37,8 @@ const { data: posts } = await useAsyncData(
     <div v-if="posts?.length" class="grid gap-4 sm:grid-cols-3">
       <NuxtLink
         v-for="post in posts"
-        :key="post.slug"
-        :to="localePath(`/blog/${post.slug}`)"
+        :key="post.path"
+        :to="localePath(`/blog/${slugFromPath(post.path)}`)"
         class="glass group rounded-xl p-5 transition hover:border-border-strong"
       >
         <time class="font-mono text-xs text-fg-subtle">

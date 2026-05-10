@@ -1,8 +1,6 @@
 ---
 title: AI Daily Briefing
 description: A personal news digest curated by Claude every morning — five minutes, the stuff worth knowing.
-locale: en
-slug: daily
 order: 2
 stack:
   - Claude API
