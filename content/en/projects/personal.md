@@ -1,8 +1,6 @@
 ---
 title: Personal Site
 description: My personal homepage built with Nuxt 4 + Tailwind v4, bilingual (Chinese / English).
-locale: en
-slug: personal
 order: 1
 stack:
   - Nuxt 4

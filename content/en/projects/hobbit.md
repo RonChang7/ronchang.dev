@@ -1,8 +1,6 @@
 ---
 title: Hobbit Tracker
 description: A personal tracker for daily habits and mood journaling — small check-ins that stack into the rhythm you want.
-locale: en
-slug: hobbit
 order: 3
 stack:
   - Nuxt 3

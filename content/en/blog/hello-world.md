@@ -2,8 +2,6 @@
 title: Hello, world
 description: The site is finally live — a quick note on why and what comes next.
 date: 2026-04-18
-locale: en
-slug: hello-world
 tags:
   - nuxt
   - meta

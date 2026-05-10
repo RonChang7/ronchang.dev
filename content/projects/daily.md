@@ -1,8 +1,6 @@
 ---
 title: AI 摘要日報
 description: 由 Claude 每天清晨自動策展的個人新聞簡報，五分鐘讀完一天該追的事。
-locale: zh
-slug: daily
 order: 2
 stack:
   - Claude API

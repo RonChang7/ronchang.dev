@@ -9,12 +9,15 @@ useSeoMeta({
 
 const { data: posts } = await useAsyncData(
   () => `blog-index-${locale.value}`,
-  () => queryCollection('blog')
-    .where('locale', '=', locale.value)
-    .order('date', 'DESC')
-    .all(),
+  () => locale.value === 'en'
+    ? queryCollection('blogEn').order('date', 'DESC').all()
+    : queryCollection('blog').order('date', 'DESC').all(),
   { watch: [locale] }
 )
+
+function slugFromPath(path: string) {
+  return path.split('/').pop() || ''
+}
 </script>
 
 <template>
@@ -30,8 +33,8 @@ const { data: posts } = await useAsyncData(
     <div v-if="posts?.length" class="divide-y divide-border">
       <NuxtLink
         v-for="post in posts"
-        :key="post.slug"
-        :to="localePath(`/blog/${post.slug}`)"
+        :key="post.path"
+        :to="localePath(`/blog/${slugFromPath(post.path)}`)"
         class="group flex flex-col gap-2 py-6 transition sm:flex-row sm:items-baseline sm:justify-between"
       >
         <div>

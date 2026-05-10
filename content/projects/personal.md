@@ -1,8 +1,6 @@
 ---
 title: Personal Site
 description: 用 Nuxt 4 + Tailwind v4 打造的個人網站，支援中英雙語。
-locale: zh
-slug: personal
 order: 1
 stack:
   - Nuxt 4

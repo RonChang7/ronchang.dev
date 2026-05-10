@@ -2,8 +2,6 @@
 title: 你好，世界
 date: 2026-04-18
 description: 個人網站正式上線！這是第一篇文章，紀錄一下這個專案的起點。
-locale: zh
-slug: hello-world
 tags:
   - nuxt
   - 雜記
