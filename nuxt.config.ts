@@ -11,9 +11,17 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      // global: true makes them available to OG image rendering (Satori)
+      // global: true makes the fonts available to the OG image renderer
+      // (Takumi). CJK subsets aren't downloaded by default, so explicitly
+      // request 'chinese-traditional' for Noto Sans TC — otherwise every
+      // Chinese glyph renders as tofu (□) in generated OG images.
       { name: 'Inter', weights: [400, 600, 700], global: true },
-      { name: 'Noto Sans TC', weights: [400, 600, 700], global: true }
+      {
+        name: 'Noto Sans TC',
+        weights: [400, 600, 700],
+        global: true,
+        subsets: ['latin', 'chinese-traditional']
+      }
     ]
   },
 
