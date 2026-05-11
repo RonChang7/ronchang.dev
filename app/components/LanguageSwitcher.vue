@@ -3,7 +3,7 @@ const { locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
 const available = computed(() =>
-  (locales.value as { code: string; name: string }[])
+  locales.value as { code: 'zh' | 'en'; name: string }[]
 )
 </script>
 
