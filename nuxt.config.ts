@@ -23,6 +23,16 @@ export default defineNuxtConfig({
     enabled: false
   },
 
+  sitemap: {
+    sources: ['/api/__sitemap__/urls'],
+    exclude: ['/admin/**', '/en/admin/**']
+  },
+
+  robots: {
+    // Keep the admin upload page out of any search index.
+    disallow: ['/admin/']
+  },
+
   studio: {
     repository: {
       provider: 'github',
