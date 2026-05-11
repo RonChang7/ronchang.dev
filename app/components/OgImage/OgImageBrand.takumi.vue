@@ -1,9 +1,8 @@
 <script setup lang="ts">
-defineProps<{
-  title?: string
-  description?: string
-  siteName?: string
-}>()
+// Static brand template — no per-page title/description. Keeps the OG
+// image dependency-free of CJK fonts so it renders reliably on Vercel.
+// Switch to dynamic per-page only when we have a Latin-friendly title
+// strategy or a self-hosted full CJK font that Takumi can load whole.
 </script>
 
 <template>
@@ -17,8 +16,8 @@ defineProps<{
       padding: 80px;
       background-color: #0b1020;
       background-image:
-        radial-gradient(1000px 600px at 0% 0%, rgba(99, 102, 241, 0.35), transparent 60%),
-        radial-gradient(900px 500px at 100% 100%, rgba(14, 165, 233, 0.25), transparent 60%);
+        radial-gradient(1000px 600px at 0% 0%, rgba(99, 102, 241, 0.4), transparent 60%),
+        radial-gradient(900px 500px at 100% 100%, rgba(14, 165, 233, 0.3), transparent 60%);
       color: #f1f5f9;
       font-family: 'Inter', sans-serif;
     "
@@ -27,7 +26,7 @@ defineProps<{
       style="
         display: flex;
         align-items: center;
-        font-size: 28px;
+        font-size: 32px;
         font-weight: 600;
         letter-spacing: -0.5px;
         font-family: 'Inter', monospace;
@@ -41,30 +40,29 @@ defineProps<{
       style="
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 28px;
       "
     >
       <div
         style="
-          font-size: 64px;
+          font-size: 96px;
           font-weight: 700;
-          line-height: 1.15;
-          letter-spacing: -1.5px;
+          line-height: 1;
+          letter-spacing: -3px;
           color: #f1f5f9;
         "
       >
-        {{ title || 'Ron Chang' }}
+        Ron Chang
       </div>
       <div
-        v-if="description"
         style="
-          font-size: 28px;
+          font-size: 36px;
           font-weight: 400;
-          line-height: 1.4;
+          line-height: 1.3;
           color: rgba(241, 245, 249, 0.7);
         "
       >
-        {{ description }}
+        Software Engineer · Web & Product Details
       </div>
     </div>
 
@@ -73,12 +71,13 @@ defineProps<{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-size: 22px;
+        font-size: 24px;
         color: rgba(241, 245, 249, 0.55);
+        font-family: 'Inter', monospace;
       "
     >
-      <span>{{ siteName || 'Ron Chang' }}</span>
-      <span style="font-family: monospace;">ronchang.dev</span>
+      <span>Notes · Projects · Writing</span>
+      <span>ronchang.dev</span>
     </div>
   </div>
 </template>

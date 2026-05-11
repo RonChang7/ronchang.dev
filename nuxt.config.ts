@@ -11,17 +11,11 @@ export default defineNuxtConfig({
 
   fonts: {
     families: [
-      // global: true makes the fonts available to the OG image renderer
-      // (Takumi). CJK subsets aren't downloaded by default, so explicitly
-      // request 'chinese-traditional' for Noto Sans TC — otherwise every
-      // Chinese glyph renders as tofu (□) in generated OG images.
-      { name: 'Inter', weights: [400, 600, 700], global: true },
-      {
-        name: 'Noto Sans TC',
-        weights: [400, 600, 700],
-        global: true,
-        subsets: ['latin', 'chinese-traditional']
-      }
+      // OG image template is Latin-only, so we only need Inter here.
+      // Adding Noto Sans TC pulled in a 7 MB font but Google Fonts
+      // ships CJK as unicode-range slices that Takumi can't combine
+      // for arbitrary glyphs — net effect was just tofu + bloat.
+      { name: 'Inter', weights: [400, 600, 700], global: true }
     ]
   },
 
