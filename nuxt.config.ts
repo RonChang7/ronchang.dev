@@ -7,7 +7,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: { strict: true, typeCheck: false },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/color-mode', 'nuxt-studio', '@nuxtjs/seo'],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/color-mode', 'nuxt-studio', '@nuxtjs/seo', '@nuxt/fonts'],
+
+  fonts: {
+    families: [
+      // global: true makes them available to OG image rendering (Satori)
+      { name: 'Inter', weights: [400, 600, 700], global: true },
+      { name: 'Noto Sans TC', weights: [400, 600, 700], global: true }
+    ]
+  },
 
   site: {
     url: 'https://www.ronchang.dev',
@@ -16,11 +24,14 @@ export default defineNuxtConfig({
     defaultLocale: 'zh'
   },
 
-  // OG image generation handled in a follow-up PR (#17) — needs renderer
-  // choice + signing secret setup. Disable here so the SEO module bundle
-  // doesn't prompt for it at build time.
   ogImage: {
-    enabled: false
+    // Default component is selected globally via defineOgImageComponent()
+    // in the layout (the type system disallows setting it in `defaults`).
+    defaults: {
+      width: 1200,
+      height: 630,
+      extension: 'png'
+    }
   },
 
   sitemap: {

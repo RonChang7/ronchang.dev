@@ -25,6 +25,11 @@ useSeoMeta({
   title: () => `${project.value?.title} — Ron Chang`,
   description: () => project.value?.description
 })
+
+defineOgImage('Brand', {
+  title: project.value?.title,
+  description: project.value?.description
+})
 </script>
 
 <template>
