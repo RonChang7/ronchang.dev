@@ -7,7 +7,21 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   typescript: { strict: true, typeCheck: false },
 
-  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/color-mode', 'nuxt-studio'],
+  modules: ['@nuxtjs/i18n', '@nuxt/content', '@nuxtjs/color-mode', 'nuxt-studio', '@nuxtjs/seo'],
+
+  site: {
+    url: 'https://www.ronchang.dev',
+    name: 'Ron Chang',
+    description: 'Ron Chang 的個人網站：作品、文章與聯絡資訊。',
+    defaultLocale: 'zh'
+  },
+
+  // OG image generation handled in a follow-up PR (#17) — needs renderer
+  // choice + signing secret setup. Disable here so the SEO module bundle
+  // doesn't prompt for it at build time.
+  ogImage: {
+    enabled: false
+  },
 
   studio: {
     repository: {
@@ -50,13 +64,11 @@ export default defineNuxtConfig({
   i18n: {
     defaultLocale: 'zh',
     strategy: 'prefix_except_default',
+    baseUrl: 'https://www.ronchang.dev',
     locales: [
       { code: 'zh', name: '繁體中文', language: 'zh-Hant', file: 'zh.json' },
       { code: 'en', name: 'English', language: 'en-US', file: 'en.json' }
     ],
-    bundle: {
-      optimizeTranslationDirective: false
-    },
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
