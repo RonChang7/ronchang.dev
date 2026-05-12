@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { t } = useI18n()
+
+// Layout-level default OG image; individual pages can call defineOgImage
+// again with their own title/description props to override.
+defineOgImage('Brand')
 </script>
 
 <template>
