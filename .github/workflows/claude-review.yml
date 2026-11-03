@@ -2,9 +2,12 @@
 # 給不能呼叫 dotfiles reusable workflow 的 repo 用：
 #   - 別的擁有者（例如 my83-org）
 #   - public repo（不能呼叫 private repo 的 reusable workflow）
-# 內容和 .github/workflows/claude-review.yml 的 code 模式相同，改規則時兩邊要一起改。
+# review 規則在執行時從 RonChang7/dotfiles 的 .claude/agents/open-hands.md 讀取，改規則只改那個檔案。
+# 刻意讀 main 的最新版、不鎖 commit SHA。open-hands.md 不要放敏感資訊：public repo 的 review 有機會把內容貼出來。
 #
-# 前置設定：該 repo 加 secret CLAUDE_CODE_OAUTH_TOKEN（claude setup-token 產生）
+# 前置設定：
+#   - secret CLAUDE_CODE_OAUTH_TOKEN（claude setup-token 產生）
+#   - secret DOTFILES_READ_TOKEN（只能讀 dotfiles 的 fine-grained token）
 # pull_request_target 跑的是 PR 目標分支上的這個檔案，PR 會開到哪些分支，這個檔案就要放在哪些分支上。
 
 name: Claude Review
@@ -37,6 +40,33 @@ jobs:
           path: pr-head
           persist-credentials: false
 
+      - name: Check DOTFILES_READ_TOKEN
+        env:
+          TOKEN: ${{ secrets.DOTFILES_READ_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::缺少 secret DOTFILES_READ_TOKEN，無法讀取 review 規則"
+            exit 1
+          fi
+
+      - name: Fetch review rules from dotfiles
+        uses: actions/checkout@v6
+        with:
+          repository: RonChang7/dotfiles
+          token: ${{ secrets.DOTFILES_READ_TOKEN }}
+          path: _dotfiles
+          sparse-checkout: .claude/agents/open-hands.md
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      # 只把規則檔複製出來，再刪掉 _dotfiles，讓 Claude 讀不到 dotfiles 的 .git 和其他內容
+      - name: Prepare review rules
+        run: |
+          src=_dotfiles/.claude/agents/open-hands.md
+          mkdir -p review-rules
+          cp "$src" review-rules/open-hands.md
+          rm -rf _dotfiles
+
       - name: Code review
         uses: anthropics/claude-code-action@v1
         with:
@@ -51,35 +81,11 @@ jobs:
             PR NUMBER: ${{ github.event.pull_request.number }}
             PR 的完整檔案在 pr-head/ 資料夾。用 `gh pr diff` 取得變更內容。
 
-            角色定位：你是一位資深軟體工程師與程式碼審查專家，在現代程式設計最佳實踐、安全編碼及 Clean Code 原則方面擁有豐富經驗。
+            Review 規則：先讀 review-rules/open-hands.md，照裡面的角色、任務和審查場景 review 這個 PR。
+            open-hands.md 只決定「審什麼」。輸出格式一律照下面的 CI 規定，不照 open-hands.md 裡的輸出範例。
 
-            任務：審查此 Pull Request 的程式碼變更，提供具體可行的回饋，協助作者提升程式碼品質、可維護性及安全性。請勿修改程式碼，僅提供具體回饋。
-
-            程式碼審查場景：
-
-            風格與格式，檢查是否有：
-            - 縮排、空格或括號使用不一致
-            - 未使用的 import 或變數
-            - 不符合標準的命名慣例
-            - 缺失或格式錯誤的註解/docstring
-            - 違反常見語言風格指南（如 PEP8、Google Style Guide）
-
-            清晰度與可讀性，辨識是否有：
-            - 過度複雜或深度巢狀的邏輯
-            - 函式做太多事（違反單一職責原則）
-            - 命名不佳導致意圖不明
-            - 非顯而易見的邏輯缺少行內文件說明
-
-            安全性與常見錯誤模式，注意是否有：
-            - 未經消毒的使用者輸入（如 SQL、shell 或 web 上下文）
-            - 寫死的密鑰或憑證
-            - 密碼學函式庫的不當使用
-            - 常見陷阱（null 解參考、差一錯誤、競態條件）
-
-            回覆方式：
-            1. 每個具體問題用 inline comment 留在對應的行上。開頭標分類：🛠️ 風格、🔍 可讀性、🔐 安全風險。內容寫為何這是問題、建議的改善方式。
-            2. 最後用 `gh pr comment` 留一則總結，依上述三個場景分組，列出問題數量與最重要的幾點。沒有問題就只寫一行「沒有發現需要修改的地方」。
+            CI 輸出規定：
+            1. 每個具體問題用 inline comment 留在對應的行上。開頭標分類：🛠️ 風格、🔍 可讀性、🔐 安全風險；open-hands.md 有其他場景時，沿用它的名稱和 emoji。內容寫為何這是問題、建議的改善方式。
+            2. 最後用 `gh pr comment` 留一則總結，依審查場景分組，列出問題數量與最重要的幾點。沒有問題就只寫一行「沒有發現需要修改的地方」。
             3. 一律使用台灣正體中文與台灣慣用語，技術術語維持原文。只講重點，不要複述程式碼。
-            4. 只審查這個 PR 變更到的部分。
-
-            切記，請勿修改程式碼。僅在回覆中提供回饋意見。
+            4. 只審查這個 PR 變更到的部分。不要修改任何檔案。
