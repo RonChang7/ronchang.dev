@@ -3,6 +3,7 @@
 #   - 別的擁有者（例如 my83-org）
 #   - public repo（不能呼叫 private repo 的 reusable workflow）
 # review 規則在執行時從 RonChang7/dotfiles 的 .claude/agents/open-hands.md 讀取，改規則只改那個檔案。
+# 刻意讀 main 的最新版、不鎖 commit SHA。open-hands.md 不要放敏感資訊：public repo 的 review 有機會把內容貼出來。
 #
 # 前置設定：
 #   - secret CLAUDE_CODE_OAUTH_TOKEN（claude setup-token 產生）
@@ -39,6 +40,15 @@ jobs:
           path: pr-head
           persist-credentials: false
 
+      - name: Check DOTFILES_READ_TOKEN
+        env:
+          TOKEN: ${{ secrets.DOTFILES_READ_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::缺少 secret DOTFILES_READ_TOKEN，無法讀取 review 規則"
+            exit 1
+          fi
+
       - name: Fetch review rules from dotfiles
         uses: actions/checkout@v6
         with:
@@ -49,6 +59,7 @@ jobs:
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
+      # 只把規則檔複製出來，再刪掉 _dotfiles，讓 Claude 讀不到 dotfiles 的 .git 和其他內容
       - name: Prepare review rules
         run: |
           src=_dotfiles/.claude/agents/open-hands.md
@@ -71,9 +82,10 @@ jobs:
             PR 的完整檔案在 pr-head/ 資料夾。用 `gh pr diff` 取得變更內容。
 
             Review 規則：先讀 review-rules/open-hands.md，照裡面的角色、任務和審查場景 review 這個 PR。
+            open-hands.md 只決定「審什麼」。輸出格式一律照下面的 CI 規定，不照 open-hands.md 裡的輸出範例。
 
-            CI 專用的回覆方式（取代 open-hands.md 裡的輸出格式）：
-            1. 每個具體問題用 inline comment 留在對應的行上，開頭標 open-hands.md 裡對應的分類 emoji。
-            2. 最後用 `gh pr comment` 留一則總結，依審查場景分組。沒有問題就只寫一行「沒有發現需要修改的地方」。
+            CI 輸出規定：
+            1. 每個具體問題用 inline comment 留在對應的行上。開頭標分類：🛠️ 風格、🔍 可讀性、🔐 安全風險；open-hands.md 有其他場景時，沿用它的名稱和 emoji。內容寫為何這是問題、建議的改善方式。
+            2. 最後用 `gh pr comment` 留一則總結，依審查場景分組，列出問題數量與最重要的幾點。沒有問題就只寫一行「沒有發現需要修改的地方」。
             3. 一律使用台灣正體中文與台灣慣用語，技術術語維持原文。只講重點，不要複述程式碼。
             4. 只審查這個 PR 變更到的部分。不要修改任何檔案。
